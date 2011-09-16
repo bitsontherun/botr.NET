@@ -1,0 +1,5 @@
+C:\$Code\BotR\net\BotR.API\bin\Debug\BotR.API.dll
+C:\$Code\BotR\net\BotR.API\bin\Debug\BotR.API.pdb
+C:\$Code\BotR\net\BotR.API\obj\Debug\ResolveAssemblyReference.cache
+C:\$Code\BotR\net\BotR.API\obj\Debug\BotR.API.dll
+C:\$Code\BotR\net\BotR.API\obj\Debug\BotR.API.pdb
