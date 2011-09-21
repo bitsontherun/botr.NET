@@ -10,3 +10,6 @@ C:\$Code\BotR\net\BotRAPIConsole\obj\Debug\BotRAPIConsole.pdb
 C:\$Code\BotR\net\BotRAPIConsole\bin\Debug\Common.Logging.dll
 C:\$Code\BotR\net\BotRAPIConsole\bin\Debug\antlr.runtime.dll
 C:\$Code\BotR\net\BotRAPIConsole\bin\Debug\test.mp4
+C:\Documents and Settings\wes\My Documents\Visual Studio 2008\Projects\botr.NET\BotRAPIConsole\bin\Debug\BotRAPIConsole.exe.config
+C:\Documents and Settings\wes\My Documents\Visual Studio 2008\Projects\botr.NET\BotRAPIConsole\obj\Debug\BotRAPIConsole.exe
+C:\Documents and Settings\wes\My Documents\Visual Studio 2008\Projects\botr.NET\BotRAPIConsole\obj\Debug\BotRAPIConsole.pdb

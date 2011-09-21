@@ -1,6 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
+#
+# This file is part of the Bits on the Run .Net API Library.
+#
+# The Bits on the Run .Net API Library is free software: you
+# can redistribute it and/or modify it under the terms of
+# the GNU Lesser General Public License as published by the
+# Free Software Foundation, either version 3 of the License,
+# or (at your option) any later version.
+#
+# The Bits on the Run .Net API Library is distributed in the
+# hope that it will be useful, but WITHOUT ANY WARRANTY;
+# without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser
+# General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General
+# Public License along with the Bits on the Run .Net API
+# Library.  If not, see <http://www.gnu.org/licenses/>.
+#
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotR.API", "BotR.API.csproj", "{F4CF022F-F94B-4B89-933C-8592ACB650FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotRAPIConsole", "..\BotRAPIConsole\BotRAPIConsole.csproj", "{6B535F7F-4488-41A2-A21A-DA7E47F6499B}"
