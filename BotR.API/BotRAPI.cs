@@ -79,7 +79,7 @@ namespace BotR.API {
             {
                 foreach (string k in args.Keys)
                 {
-                    _queryString.Add(k, HttpUtility.UrlEncode(args.Get(k), Encoding.Default));
+                    _queryString.Add(k, HttpUtility.UrlEncode(args.Get(k), Encoding.UTF8));
                 }
             }
             buildArgs();
