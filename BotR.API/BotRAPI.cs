@@ -76,16 +76,23 @@ namespace BotR.API {
 
             //add the non-required args to the required args
             if (args != null)
-                _queryString.Add(args);
-            
+            {
+                foreach (string k in args.Keys)
+                {
+                    _queryString.Add(k, HttpUtility.UrlEncode(args.Get(k), Encoding.Default));
+                }
+            }
             buildArgs();
             WebClient client = createWebClient();
 
             string callUrl = _apiURL + apiCall;
-            
-            try {
-                return client.DownloadString(callUrl);     
-            } catch  {
+
+            try
+            {
+                return client.DownloadString(callUrl);
+            }
+            catch
+            {
                 return "";
             }                                                               
         }
@@ -124,7 +131,7 @@ namespace BotR.API {
             queryStringToArgs();
 
             HashAlgorithm ha = HashAlgorithm.Create("SHA");
-            byte[] hashed = ha.ComputeHash(Encoding.UTF8.GetBytes(_args + Secret));
+            byte[] hashed = ha.ComputeHash(Encoding.UTF8.GetBytes(HttpUtility.UrlDecode(_args, Encoding.UTF8) + Secret));
             return BitConverter.ToString(hashed).Replace("-", "").ToLower();
         }
 

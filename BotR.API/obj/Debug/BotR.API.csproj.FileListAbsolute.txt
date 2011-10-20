@@ -3,3 +3,8 @@ C:\$Code\BotR\net\BotR.API\bin\Debug\BotR.API.pdb
 C:\$Code\BotR\net\BotR.API\obj\Debug\ResolveAssemblyReference.cache
 C:\$Code\BotR\net\BotR.API\obj\Debug\BotR.API.dll
 C:\$Code\BotR\net\BotR.API\obj\Debug\BotR.API.pdb
+C:\Documents and Settings\wes\My Documents\Visual Studio 2008\Projects\botr.NET\BotR.API\bin\Debug\BotR.API.dll
+C:\Documents and Settings\wes\My Documents\Visual Studio 2008\Projects\botr.NET\BotR.API\bin\Debug\BotR.API.pdb
+C:\Documents and Settings\wes\My Documents\Visual Studio 2008\Projects\botr.NET\BotR.API\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\wes\My Documents\Visual Studio 2008\Projects\botr.NET\BotR.API\obj\Debug\BotR.API.dll
+C:\Documents and Settings\wes\My Documents\Visual Studio 2008\Projects\botr.NET\BotR.API\obj\Debug\BotR.API.pdb
