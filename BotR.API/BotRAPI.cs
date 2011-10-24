@@ -28,6 +28,7 @@ using System.IO;
 using System.Collections.Specialized;
 using System.Security.Cryptography;
 using System.Web;
+using System.Text.RegularExpressions;
 
 namespace BotR.API {
 
@@ -79,7 +80,7 @@ namespace BotR.API {
             {
                 foreach (string k in args.Keys)
                 {
-                    _queryString.Add(k, HttpUtility.UrlEncode(HttpUtility.UrlEncode(args.Get(k), Encoding.UTF8)));
+                    _queryString.Add(k, UrlEncodeUCase(args.Get(k), Encoding.UTF8));
                 }
             }
             buildArgs();
@@ -98,7 +99,31 @@ namespace BotR.API {
         }
 
         /// <summary>
-        /// Upload a file to account
+        /// Upload a file to account without optional arguments
+        /// </summary>
+        /// <param name="uploadUrl">The url returned from /videos/create call</param>
+        /// <param name="filePath">Path to file to upload</param>
+        /// <returns>The string response from the API call</returns>
+        public string Upload(string uploadUrl, string filePath)
+        {
+
+            WebClient client = createWebClient();
+
+            string callUrl = _apiURL + uploadUrl;
+
+            try
+            {
+                byte[] response = client.UploadFile(callUrl, filePath);
+                return Encoding.UTF8.GetString(response);
+            }
+            catch
+            {
+                return "";
+            }
+        }
+
+        /// <summary>
+        /// Upload a file to account with optional arguments
         /// </summary>
         /// <param name="uploadUrl">The url returned from /videos/create call</param>
         /// <param name="args">Optional args (video meta data)</param>
@@ -112,8 +137,7 @@ namespace BotR.API {
             _queryString["api_format"] = APIFormat ?? "xml"; //xml if not specified - normally set in required args routine                                   
             queryStringToArgs();
 
-            string callUrl = _apiURL + uploadUrl + "?" + _args;
-            callUrl = uploadUrl + "?" + _args;
+            string callUrl = uploadUrl + "?" + _args;
 
             try {
                  byte[] response = client.UploadFile(callUrl, filePath);
@@ -186,6 +210,19 @@ namespace BotR.API {
         /// <returns></returns>
         private int getUnixTime() {
             return (int)(DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0)).TotalSeconds;            
+        }
+
+        /// <summary>
+        /// Double UrlEncode & convert hex chars to uppercase, while preserving spaces.
+        /// Calling HttpUtility.UrlEncode twice causes spaces to apear as '+' in the API
+        /// so we fudge it with a string replace targetting % instead
+        /// </summary>
+        /// <returns>string</returns>
+        private string UrlEncodeUCase(string data, Encoding enc)
+        {
+            data = HttpUtility.UrlEncode(data);
+            data = Regex.Replace(data, "(%[0-9a-f][0-9a-f])", c => c.Value.ToUpper());
+            return data.Replace("%", "%25");
         }
     }
 }
