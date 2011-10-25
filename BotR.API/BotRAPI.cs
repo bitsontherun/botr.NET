@@ -155,7 +155,7 @@ namespace BotR.API {
             queryStringToArgs();
 
             HashAlgorithm ha = HashAlgorithm.Create("SHA");
-            byte[] hashed = ha.ComputeHash(Encoding.UTF8.GetBytes(HttpUtility.UrlDecode(_args, Encoding.UTF8) + Secret));
+            byte[] hashed = ha.ComputeHash(Encoding.UTF8.GetBytes(_args + Secret));
             return BitConverter.ToString(hashed).Replace("-", "").ToLower();
         }
 
@@ -220,9 +220,7 @@ namespace BotR.API {
         /// <returns>string</returns>
         private string UrlEncodeUCase(string data, Encoding enc)
         {
-            data = HttpUtility.UrlEncode(data);
-            data = Regex.Replace(data, "(%[0-9a-f][0-9a-f])", c => c.Value.ToUpper());
-            return data.Replace("%", "%25");
+            return Regex.Replace(HttpUtility.UrlEncode(data), "(%[0-9a-f][0-9a-f])", c => c.Value.ToUpper());
         }
     }
 }
