@@ -213,9 +213,7 @@ namespace BotR.API {
         }
 
         /// <summary>
-        /// Double UrlEncode & convert hex chars to uppercase, while preserving spaces.
-        /// Calling HttpUtility.UrlEncode twice causes spaces to apear as '+' in the API
-        /// so we fudge it with a string replace targetting % instead
+        /// Convert hex chars to uppercase as per OAuth-spec requirement
         /// </summary>
         /// <returns>string</returns>
         private string UrlEncodeUCase(string data, Encoding enc)
