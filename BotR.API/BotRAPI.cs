@@ -183,6 +183,7 @@ namespace BotR.API {
 
             _queryString["api_format"] = APIFormat ?? "xml"; //xml if not specified
             _queryString["api_key"] = Key;
+            _queryString["api_kit"] = "dnet-1.0";
             _queryString["api_nonce"] = string.Format("{0:00000000}", new Random().Next(99999999));
             _queryString["api_timestamp"] = getUnixTime().ToString();
             _queryString["api_signature"] = signArgs();            
@@ -218,7 +219,13 @@ namespace BotR.API {
         /// <returns>string</returns>
         private string UrlEncodeUCase(string data, Encoding enc)
         {
-            return Regex.Replace(HttpUtility.UrlEncode(data), "(%[0-9a-f][0-9a-f])", c => c.Value.ToUpper());
+            data = Regex.Replace(HttpUtility.UrlEncode(data), "(%[0-9a-f][0-9a-f])", c => c.Value.ToUpper());
+            // API expects spaces as %20
+            data = data.Replace("+", "%20");
+            // API expects tildes to be passed through directly
+            data = data.Replace("%7E", "~");
+
+            return data;
         }
     }
 }
